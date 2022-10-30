@@ -1,0 +1,37 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("[🎃 EVENT!] Synex Scripts YT", "BloodTheme")
+
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+
+MainSection:NewToggle("AutoFarm Candy", "AutoFarm !", function(state)
+    if state then
+while wait(1) do
+for i,v in pairs(game:GetService("Workspace").Game.Halloween.Candy.CandyDrops:GetChildren()) do
+     if v.Name == "Candy" then
+           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame - v.CFrame.LookVector*3
+           game.Players.LocalPlayer.Character.Humanoid.Jump = true
+     end
+end
+end
+    else
+        print("Toggle Off")
+    end
+end)
+
+MainSection:NewButton("Teleport To Shop", "Teleport To Shop", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(389.765503, 11.7307072, -4007.58179, 0.643662155, 2.88710371e-08, 0.765309751, -6.83023416e-08, 1, 1.97208987e-08, -0.765309751, -6.4966045e-08, 0.643662155)
+end)
+
+MainSection:NewSlider("Walk Speed", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+MainSection:NewSlider("Jump Power", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+local Credits = Window:NewTab("Credits")
+local CreditsSection = Credits:NewSection("Credits")
+CreditsSection:NewButton("Made By: Synex SCRIPTS YT", "Sub :D", function()
+    print("Clicked")
+end)
